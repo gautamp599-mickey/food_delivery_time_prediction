@@ -40,13 +40,29 @@ with col1:
 with col2:
     st.subheader("Logistics & Environment")
     weather = st.selectbox("Weather", ['Clear', 'Cloudy', 'Rain', 'Storm', 'Fog'], index=2)
+    
+    # --- Dynamic Traffic and Speed Logic ---
     traffic = st.selectbox("Traffic Level", ['Low', 'Moderate', 'High', 'Severe'])
+    
+    realistic_speeds = {
+        'Low': 35.0,
+        'Moderate': 27.0,
+        'High': 20.0,
+        'Severe': 14.0
+    }
+    
+    avg_speed = st.number_input(
+        "Average Speed (kmph)", 
+        min_value=5.0, 
+        max_value=60.0, 
+        value=realistic_speeds[traffic] # <--- Dynamically updates based on the traffic selectbox
+    )
+    # ---------------------------------------
+    
     vehicle = st.selectbox("Vehicle Type", ['Scooter', 'Bike', 'Electric Scooter', 'Bicycle'])
     road_dist = st.number_input("Road Distance (km)", min_value=0.5, max_value=30.0, value=5.5)
     dist_cat = st.selectbox("Distance Category", ['Short', 'Medium', 'Long'], index=1)
-    avg_speed = st.number_input("Average Speed (kmph)", min_value=10.0, max_value=60.0, value=35.0)
     signals = st.slider("Number of Signals", 0, 20, 5)
-    
     
     st.subheader("Time & Date")
     order_hour = st.slider("Order Hour (24h)", 0, 23, 19)
@@ -76,9 +92,9 @@ if st.button("Predict Delivery Time", type="primary"):
         'Preparation_Time_Min': [prep_time],
         'Road_Distance_km': [road_dist],
         'Delivery_Distance_Category': [dist_cat],
-        'Traffic_Level': [traffic],
+        'Traffic_Level': [traffic],              # <--- Safely mapped from the UI variable
         'Number_of_Signals': [signals],
-        'Average_Speed_kmph': [avg_speed],
+        'Average_Speed_kmph': [avg_speed],       # <--- Safely mapped from the UI variable
         'Delivery_Priority': [priority]
     }
     
