@@ -1,0 +1,38 @@
+paths:
+  raw_data: "Food_Delivery_Time_Prediction.csv"
+  preprocessor_path: "preprocessor.pkl"
+  nn_model_path: "delivery_nn_model.keras"
+  rf_model_path: "random_forest_model.pkl"
+
+features:
+  nominal:
+    - "Day_of_Week"
+    - "Weather"
+    - "Pickup_Zone"
+    - "Dropoff_Zone"
+    - "Vehicle_Type"
+    - "Cuisine_Type"
+  ordinal:
+    - "Restaurant_Load"
+    - "Delivery_Distance_Category"
+    - "Traffic_Level"
+    - "Delivery_Priority"
+  numerical:
+    - "Order_Hour"
+    - "Is_Weekend"
+    - "Is_Festival"
+    - "Rider_Experience_Years"
+    - "Rider_Rating"
+    - "Restaurant_Rating"
+    - "Order_Items"
+    - "Preparation_Time_Min"
+    - "Road_Distance_km"
+    - "Number_of_Signals"
+    - "Average_Speed_kmph"
+  target: "Time_taken_min"
+
+ordinal_categories:
+  restaurant_load: ["Low", "Medium", "High"]
+  distance_cat: ["Short", "Medium", "Long"]
+  traffic_level: ["Low", "Moderate", "High", "Severe"]
+  priority: ["Normal", "Priority", "VIP"]

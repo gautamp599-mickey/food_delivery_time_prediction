@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments (CRITICAL: includes your fdtp_venv)
+fdtp_venv/
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Keras Tuner cache directory generated during training
+Food_Delivery_Time_Prediction/
+
+# Datasets (Keep data out of Git, but keep the folder structure)
+*.csv
+data/raw/*.csv
+data/processed/*.csv
+!.gitkeep
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+*.log

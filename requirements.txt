@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+tensorflow
+keras-tuner
+xgboost
+catboost
+joblib
+streamlit
+matplotlib
+pyyaml
+pytest
+tensorboard
